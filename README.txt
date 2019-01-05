@@ -1,17 +1,20 @@
 # edge
 stuff that lives on the edge
 
-
-root@cadillac:~# cat enable.sh 
-#/sbin/uci set wireless.@wifi-iface[2].disabled=1
-/sbin/uci delete wireless.@wifi-iface[2].disabled
+cat > enable.sh << EOF
+/sbin/uci delete wireless.@wifi-iface[1].disabled
+/sbin/uci commit
 wifi
+EOF
+chmod +x enable.sh 
 
-root@cadillac:~# cat disable.sh 
-/sbin/uci set wireless.@wifi-iface[2].disabled=1
-#/sbin/uci delete wireless.@wifi-iface[2].disabled
+cat  > disable.sh  << EOF
+/sbin/uci set wireless.@wifi-iface[1].disabled=1
+/sbin/uci commit
 wifi
+EOF
 
+chmod +x disable.sh 
 
 crontab: 
 0	17	*	*	*	/root/enable.sh
