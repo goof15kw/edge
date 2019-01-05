@@ -1,6 +1,8 @@
 # edge
 stuff that lives on the edge
 
+This version as of 18.06 confuses LuCI and LuCI will show the interface not in the right state.
+
 cat > enable.sh << EOF
 /sbin/uci delete wireless.@wifi-iface[1].disabled
 /sbin/uci commit
