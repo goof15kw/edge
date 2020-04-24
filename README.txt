@@ -4,14 +4,14 @@ stuff that lives on the edge
 This version as of 18.06 confuses LuCI and LuCI will show the interface not in the right state (only if you are looking at it. F5 will fix it).
 
 cat > enable.sh << EOF
-/sbin/uci delete wireless.@wifi-iface[1].disabled
+/sbin/uci delete  wireless.wifinet1.disabled
 /sbin/uci commit
 wifi
 EOF
 chmod +x enable.sh 
 
 cat  > disable.sh  << EOF
-/sbin/uci set wireless.@wifi-iface[1].disabled=1
+/sbin/uci set  wireless.wifinet1.disabled=1
 /sbin/uci commit
 wifi
 EOF
